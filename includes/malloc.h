@@ -18,18 +18,20 @@
 #define	SMALL_ZONE (512)
 #define TINY (TINY_ZONE * 100)
 #define SMALL (SMALL_ZONE * 100)
+#define TINY_PAGE (TINY * PAGE_SIZE)
+#define SMALL_PAGE (SMALL * PAGE_SIZE)
 
 typedef struct		s_data
 {
 	size_t			size;
-	bool			free_stat;
-	struct s_data	*next;
+	size_t			status;
+	struct s_data	*block;
 }					t_data;
 
 typedef struct		s_list
 {
 	size_t			size;
-	t_data			*node;
+	t_data			*page;
 }					t_list;
 
 typedef struct		s_alloc

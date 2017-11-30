@@ -14,5 +14,9 @@
 
 int main(void)
 {
+    int *tt;
+
+    tt = (int *)malloc(1 * sizeof(int));
+    printf("size = [%d]\nstatus = [%d]\nptr = [%p]\n",*tt , *(tt + 1), (tt));
 	return (0);
 }

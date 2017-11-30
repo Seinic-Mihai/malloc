@@ -12,21 +12,46 @@
 
 #include <malloc.h>
 
-void	work_with_tiny(size_t size)
+void    place_block(t_data *ptr, size_t size)
+{
+    ptr->size = size;
+    ptr->status = 1;
+    ptr->block = ptr + (size + sizeof(t_data)); 
+}
+
+t_data    *new_tiny(size_t size)
+{
+    t_data  *ptr;
+
+    ptr = new_page(TINY);
+    place_block(ptr, size);
+    return (ptr);
+}
+
+void	*work_with_tiny(size_t size)
 {
 	t_data		*cursor;
+    size_t      buss;
 
-	cursor = g_ptr.tiny.node;
+    buss = 0;
+	cursor = g_ptr.tiny.page;
 	while (cursor != NULL)
-		cursor = cursor->next;
+    {
 
+        if (!cursor->status && size <= cursor->size)
+            buss++;
+        buss += cursor->size;
+		cursor = cursor->block;
+    }
+    cursor = new_tiny(size);
+    return ((void *)(cursor /*+ sizeof(t_data)*/));
 }
 
 void	*malloc(size_t size)
 {
 	void	*ptr;
 	if (size < TINY_ZONE)
-		ptr = NULL;
+        ptr = work_with_tiny(size);
 	else if (size >= TINY_ZONE && size < SMALL_ZONE)
 		ptr = NULL;
 	else

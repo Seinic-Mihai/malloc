@@ -15,8 +15,12 @@
 void	*new_page(size_t size)
 {
 	void	*ptr;
+    size_t  i;
 
-	ptr = mmap(0, PAGE_SIZE * size, PROT_READ | PROT_WRITE,
+    i = PAGE_SIZE * size;
+    ptr = mmap(0, i, PROT_READ | PROT_WRITE,
 			MAP_ANON | MAP_PRIVATE, -1, 0);
-	return (ptr);
+    while (i-- > 0)
+        ((char*)ptr)[i] = '\0';
+    return (ptr);
 }

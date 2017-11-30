@@ -16,7 +16,7 @@ SRC_LIST = main malloc manage_alloc new_page
 #----------------MODIF--------------------#
 
 #----------------STD--------------------#
-COMPILER := clang
+COMPILER := gcc
 SRC_PATH := srcs/
 HDR_PATH := includes/
 CACHE_PATH := cache/
