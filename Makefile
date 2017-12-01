@@ -6,13 +6,13 @@
 #    By: mseinic <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/14 11:35:32 by mseinic           #+#    #+#              #
-#    Updated: 2017/11/28 15:50:42 by mseinic          ###   ########.fr        #
+#    Updated: 2017/12/01 14:58:43 by mseinic          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #----------------MODIF--------------------#
 NAME := malloc_test.exe
-SRC_LIST = main malloc manage_alloc new_page
+SRC_LIST = main malloc manage_alloc new_page work_with_tiny
 #----------------MODIF--------------------#
 
 #----------------STD--------------------#

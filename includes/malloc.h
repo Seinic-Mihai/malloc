@@ -6,7 +6,7 @@
 /*   By: mseinic <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/23 13:51:17 by mseinic           #+#    #+#             */
-/*   Updated: 2017/11/28 19:27:23 by mseinic          ###   ########.fr       */
+/*   Updated: 2017/12/01 18:28:36 by mseinic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,9 @@ typedef struct		s_alloc
 
 t_alloc				g_ptr;
 
+
 void				*malloc(size_t size);
+void				*work_with_tiny(size_t size);
 t_alloc				*manage_alloc(size_t size);
 void				*new_page(size_t size);
 
